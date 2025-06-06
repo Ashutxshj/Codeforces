@@ -8,7 +8,6 @@ int main()
     while (t--)
     {
         long long n, k;
-        cin >> n >> k;
         
         bool ans = false;
         if (n % 2 == 0)
