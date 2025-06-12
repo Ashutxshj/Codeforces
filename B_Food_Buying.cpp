@@ -1,29 +1,23 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    
-    int t;
-    cin >> t;
-    
-    while (t--) {
-        long long s;
-        cin >> s;
-        
-        long long total_spent = 0;
-        
-        while (s >= 10) {
-            
-            total_spent += 10;
-            s = s - 10 + 1;
-        }
-        
-        total_spent += s;
-        
-        cout << total_spent << "\n";
-    }
-    
-    return 0;
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int s;
+		cin >> s;
+		int ans = 0;
+		int pw = 1000 * 1000 * 1000;
+		while (s > 0) {
+			while (s < pw) pw /= 10;
+			ans += pw;
+			s -= pw - pw / 10;
+		}
+		cout << ans << endl;
+	}
+	
+	return 0;
 }
