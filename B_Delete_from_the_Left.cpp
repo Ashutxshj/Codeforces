@@ -6,7 +6,7 @@ int main()
 {
     string s, t;
     cin >> s >> t;
-    ll w = 0;
+    int w = 0;
     while (true)
     {
         int i = s.length() - w - 1;
