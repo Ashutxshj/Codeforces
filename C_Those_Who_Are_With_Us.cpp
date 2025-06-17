@@ -1,54 +1,59 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+// I like girls they make me feel so good
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
     int t;
     cin >> t;
-
-    while (t--) {
+    while (t--)
+    {
         int n, m;
         cin >> n >> m;
         vector<vector<int>> a(n, vector<int>(m));
-        int maxVal = 0;
-
-        // Track where the max values are
-        vector<pair<int, int>> maxPositions;
-
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j < m; ++j) {
+        int global_max = 0;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
                 cin >> a[i][j];
-                if (a[i][j] > maxVal) {
-                    maxVal = a[i][j];
-                    maxPositions.clear();
-                    maxPositions.emplace_back(i, j);
-                } else if (a[i][j] == maxVal) {
-                    maxPositions.emplace_back(i, j);
-                }
+                global_max = max(global_max, a[i][j]);
             }
-
-        int result = 1e9;
-
-        // Try every (r, c) from maxPositions only
-        for (auto [r, c] : maxPositions) {
-            int curMax = 0;
-            for (int i = 0; i < n; ++i) {
-                for (int j = 0; j < m; ++j) {
-                    int val = a[i][j];
-                    if (i == r || j == c) val--;
-                    if (i == r && j == c) val--;
-                    curMax = max(curMax, val);
-                }
-            }
-            result = min(result, curMax);
         }
 
-        cout << result << '\n';
-    }
+        vector<pair<int, int>> pos;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if (a[i][j] == global_max)
+                {
+                    pos.emplace_back(i, j);
+                }
+            }
+        }
 
-    return 0;
+        bool can_reduce = false;
+        for (int r = 0; r < n && !can_reduce; r++)
+        {
+            unordered_set<int> cols;
+            for (auto &p : pos)
+            {
+                if (p.first != r)
+                {
+                    cols.insert(p.second);
+                    if (cols.size() > 1)
+                        break;
+                }
+            }
+            if (cols.size() <= 1)
+            {
+                can_reduce = true;
+            }
+        }
+
+        cout << (can_reduce ? global_max - 1 : global_max) << "\n";
+    }
 }
