@@ -2,13 +2,14 @@
 using namespace std;
 #define ll long long
 #define pb push_back
-//Bye bye American Pie
+// Bye bye American Pie
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int t;
+    cin >> t;
     if (!(cin >> t))
         return 0;
     while (t--)
