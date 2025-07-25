@@ -1,19 +1,19 @@
 #include <iostream>
-#include <unordered_set>
+#include <set>
 using namespace std;
 
 int main()
 {
     string name;
     cin >> name;
-    unordered_set<char> unique_chars;
+    set<char> st;
     
     for (char c : name)
     {
-        unique_chars.insert(c);
+        st.insert(c);
     }
 
-    if (unique_chars.size() % 2 == 0)
+    if (st.size() % 2 == 0)
         cout << "CHAT WITH HER!";
     else
         cout << "IGNORE HIM!";
