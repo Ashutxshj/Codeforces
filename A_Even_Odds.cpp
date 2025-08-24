@@ -1,24 +1,9 @@
-#include <iostream>
-#define ll long long
+#include <bits/stdc++.h>
 using namespace std;
-
+#define ll long long
 int main()
 {
+    // 1 3 5 7 9 2 4 6 8 10
     ll n, k;
-    cin >> n >> k;
-
-    ll odd_count = (n + 1) / 2;
-
-    if (k <= odd_count)
-    {
-
-        cout << 2 * k - 1 << endl;
-    }
-    else
-    {
-        ll pos_in_even = k - odd_count;
-        cout << 2 * pos_in_even << endl;
-    }
-
-    return 0;
+    
 }
