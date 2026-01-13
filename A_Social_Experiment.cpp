@@ -8,9 +8,9 @@ int main()
     {
         int n;
         cin >> n;
-        if (n % 3)
-            cout << "First" << endl;
+        if (n == 2)
+            cout << 2<<"\n";
         else
-            cout << "Second" << endl;
+            cout << n % 2<<"\n";
     }
 }
