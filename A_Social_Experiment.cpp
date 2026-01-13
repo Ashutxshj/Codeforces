@@ -8,9 +8,9 @@ int main()
     {
         int n;
         cin >> n;
-        if (n == 2)
-            cout << 2<<"\n";
+        if (n == 2 || n == 3)
+            cout << n << "\n";
         else
-            cout << n % 2<<"\n";
+            cout << n % 2 << "\n";
     }
 }
